@@ -152,8 +152,8 @@ rushmore-pizzeria-db/
 ### 2. Clone the repository
 
 ```bash
-git clone https://github.com/<your-username>/rushmore-pizzeria-db.git
-cd rushmore-pizzeria-db
+git clone https://github.com/eaomosebi-blip/Data-Eng.-10Alytics.git
+cd "Data-Eng.-10Alytics"
 ```
 
 ### 3. Create a virtual environment and install dependencies
@@ -264,7 +264,6 @@ RESTART IDENTITY CASCADE;
 | Business rules | Each `orders.total_amount` equals the sum of its line items; each line price matches the menu price; every order has line items; every menu item has a recipe |
 | Distribution | Orders and revenue per store, orders per month, min/avg/max order value |
 
-**Result:** _All integrity checks passed (see screenshot below)._
 
 ## Query Optimization
 
@@ -281,14 +280,6 @@ CREATE INDEX idx_order_items_item_id  ON order_items (item_id);
 CREATE INDEX idx_mii_ingredient_id    ON menu_item_ingredients (ingredient_id);
 ```
 
-Fill in your measured results:
-
-| Query | Before (ms) | After (ms) | Scan type before | Scan type after |
-|---|---|---|---|---|
-| A: Order history for one customer | _ | _ | Seq Scan | Index Scan |
-| B: Line items for one order | _ | _ | Seq Scan | Index Scan |
-| C: Monthly revenue for one store | _ | _ | _ | _ |
-| D: Top 10 best-selling items | _ | _ | _ | _ |
 
 Queries that aggregate most of a table (such as D) may keep using a sequential scan even with indexes, because reading the whole table is cheaper than jumping through an index. That is expected planner behavior, not a failure.
 
@@ -296,16 +287,9 @@ Queries that aggregate most of a table (such as D) may keep using a sequential s
 
 ### Table row counts (pgAdmin connected to Cloud SQL)
 
-![Table row counts](docs/screenshots/table_row_counts.png)
+![Table row counts](Screenshot 2026-11-05 160311.png)
 
-### Integrity checks
 
-![Integrity checks](docs/screenshots/integrity_checks.png)
-
-### EXPLAIN ANALYZE: before and after indexing
-
-![Before indexing](docs/screenshots/explain_before.png)
-![After indexing](docs/screenshots/explain_after.png)
 
 ## Design Decisions
 
@@ -330,5 +314,5 @@ Queries that aggregate most of a table (such as D) may keep using a sequential s
 
 ## Author
 
-**<Your Name>**
-GitHub: [@your-username](https://github.com/your-username)
+**<Omosebi Emmanuel>**
+GitHub: [@eaomosebi-blip](https://github.com/eaomosebi-blip)
